@@ -1,0 +1,1162 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/yetkin/"
+     xml:base="http://www.semanticweb.org/yetkin/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:yetkin="http://www.semanticweb.org/yetkin/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/yetkin/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasAmca -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasAmca">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isAmcaOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasAncestor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasAncestor">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/hasParent"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasBrother -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasBrother">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasSibling"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isBrotherOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Erkek_Kardes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasChild -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasChild">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/yetkin/isParentOf"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasCousin -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasCousin">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/hasParent"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isSiblingOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isParentOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasDaughter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasDaughter">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasChild"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasDayi -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasDayi">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isDayiOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasDescendant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasDescendant">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/hasChild"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasFather -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasFather">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasParent"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isFatherOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Baba"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasFemalePartner -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasFemalePartner">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasMarriage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasHala -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasHala">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isHalaOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasJob -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasJob">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasMalePartner -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasMalePartner">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasMarriage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasMarriage -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasMarriage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasMother -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasMother">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasParent"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isMotherOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Anne"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasParent -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasParent">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isParentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Ebeveny"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasSex -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasSex">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Cinsiyet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasSibling -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasSibling">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isSiblingOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasSister -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasSister">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasSibling"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isSisterOF"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/kiz_Kardes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasSon -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasSon">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasChild"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasTeyze -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/hasTeyze">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yetkin/isTeyzeOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isAmcaOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isAmcaOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isBrotherOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isFatherOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isAncestorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isAncestorOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isArtisan -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isArtisan">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Esnaf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isBrotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isBrotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isSiblingOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Erkek_Kardes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isCivilServant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isCivilServant">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Memur"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isDayiOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isDayiOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isBrotherOf"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isMotherOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isDescendantOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isDescendantOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isEngineer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isEngineer">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Muhendis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isFatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isFatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isParentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Baba"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isHalaOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isHalaOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isSisterOF"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isFatherOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isHouseWife -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isHouseWife">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/EvHanimi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isHousewife -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isHousewife">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isMotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isMotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isParentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Anne"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isParentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isParentOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isPolice -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isPolice">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Polis"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isRelationOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isRelationOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSiblingOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isSiblingOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isRelationOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSisterOF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isSisterOF">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/isSiblingOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/kiz_Kardes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSoccerPlayer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isSoccerPlayer">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Futbolcu"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSoilder -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isSoilder">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Asker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isTeacher -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isTeacher">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Ogretmen"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isTeyzeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isTeyzeOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasRelation"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isSisterOF"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/isMotherOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isWorker -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yetkin/isWorker">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasJob"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yetkin/Isci"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasBornYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasBornYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasCrime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasCrime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasDeathYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasDeathYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasDisease -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasDisease"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasFirstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasFirstName">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasJob -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasJob">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasLastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasLastName">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yetkin/hasName"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasMarriageYear -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasMarriageYear">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isArtisan -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isArtisan"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isCivilServant -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isCivilServant"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isEngineer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isEngineer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isHousewife -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isHousewife"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isPolice -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isPolice"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSoccerPlayer -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isSoccerPlayer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isSoilder -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isSoilder"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/isTeacher -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yetkin/isTeacher"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Amca -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Amca">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Anne -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Anne">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Ebeveny"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasSex"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yetkin/Kadin"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Baba"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Asker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Asker">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ata -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Ata">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Baba -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Baba">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Ebeveny"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasSex"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yetkin/Erkek"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Cinsiyet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Cinsiyet">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Dayi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Dayi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/DomainEntity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/DomainEntity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ebeveny -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Ebeveny">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Erkek -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Erkek">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Cinsiyet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Erkek_Kardes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Erkek_Kardes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kardes"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Esnaf -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Esnaf">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/EvHanimi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/EvHanimi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Futbolcu -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Futbolcu">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Hala -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Hala">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Hastalik -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Hastalik">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Sabika"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Isci -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Isci">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Kadin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Kadin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Cinsiyet"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Kardes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Kardes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Kisi -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Kisi">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasFather"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yetkin/Baba"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasMother"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yetkin/Anne"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasSex"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yetkin/Cinsiyet"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Sabika"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Kuzen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Kuzen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Marriage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Marriage">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yetkin/Kisi"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasFemalePartner"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.semanticweb.org/yetkin/hasMalePartner"/>
+                                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Memur -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Memur">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Meslek -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Meslek">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yetkin/Sabika"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Muhendis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Muhendis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ogretmen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Ogretmen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Polis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Polis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Meslek"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Sabika -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Sabika">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/DomainEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Teyze -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Teyze">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Torun -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/Torun">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/kiz_Kardes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yetkin/kiz_Kardes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yetkin/Kardes"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Adnan_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Adnan_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ahmet_Rahmi_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Ahmet_Rahmi_Kocaer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasFemalePartner rdf:resource="http://www.semanticweb.org/yetkin/Nazife_Kocaer"/>
+        <hasMarriage rdf:resource="http://www.semanticweb.org/yetkin/Nazife_Kocaer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Ali"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ali_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Ali_Sutcu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Baba"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Ebeveny"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+        <hasFemalePartner rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasMarriage rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasRelation rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasRelation rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasRelation rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+        <hasSon rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasSon rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Asuman_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Asuman_Kocaer">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/yetkin/Serdar_Ozcali"/>
+        <hasSibling rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasSister rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasSon rdf:resource="http://www.semanticweb.org/yetkin/Serdar_Ozcali"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Dilara_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Dilara_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Dudu_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Dudu_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Fatma -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Fatma"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Filiz_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Filiz_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ibrahim -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Ibrahim"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Ibrahim_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Ibrahim_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Lutfiye_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Lutfiye_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Makbule -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Makbule"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Mualla_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Mualla_Sutcu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Anne"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Ebeveny"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasChild rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasFather rdf:resource="http://www.semanticweb.org/yetkin/Ahmet_Rahmi_Kocaer"/>
+        <hasMalePartner rdf:resource="http://www.semanticweb.org/yetkin/Ali_Sutcu"/>
+        <hasMarriage rdf:resource="http://www.semanticweb.org/yetkin/Ali_Sutcu"/>
+        <hasMother rdf:resource="http://www.semanticweb.org/yetkin/Nazife_Kocaer"/>
+        <hasSibling rdf:resource="http://www.semanticweb.org/yetkin/Asuman_Kocaer"/>
+        <hasSister rdf:resource="http://www.semanticweb.org/yetkin/Asuman_Kocaer"/>
+        <hasSon rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasSon rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Mustafa_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Mustafa_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Muzaffer_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Muzaffer_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Nazife_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Nazife_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Niyazi_Altac -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Niyazi_Altac"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Saliha_Altac -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Saliha_Altac"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Seda_Ozcali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Seda_Ozcali"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Sefa_Ozcali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Sefa_Ozcali"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Selim_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Selim_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Semih_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Semih_Sutcu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kardes"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasBrother rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+        <hasFather rdf:resource="http://www.semanticweb.org/yetkin/Ali_Sutcu"/>
+        <hasMother rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasSibling rdf:resource="http://www.semanticweb.org/yetkin/Yetkin_Sutcu"/>
+        <hasJob rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tekstil Mühendisi</hasJob>
+        <hasJob rdf:datatype="http://www.w3.org/2001/XMLSchema#string">İnşaat Teknikeri</hasJob>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Serdar_Ozcali -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Serdar_Ozcali"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Sukru_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Sukru_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Sukru_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Sukru_Sutcu"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Utku_Kocaer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Utku_Kocaer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yetkin/Yetkin_Sutcu -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yetkin/Yetkin_Sutcu">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kardes"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yetkin/Kisi"/>
+        <hasBrother rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasFather rdf:resource="http://www.semanticweb.org/yetkin/Ali_Sutcu"/>
+        <hasMother rdf:resource="http://www.semanticweb.org/yetkin/Mualla_Sutcu"/>
+        <hasParent rdf:resource="http://www.semanticweb.org/yetkin/Ali_Sutcu"/>
+        <hasSibling rdf:resource="http://www.semanticweb.org/yetkin/Semih_Sutcu"/>
+        <hasBornYear rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1995-11-24T00:00:00</hasBornYear>
+        <hasDisease rdf:datatype="http://www.w3.org/2001/XMLSchema#string">su çiçeği</hasDisease>
+        <hasFirstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">yetkin</hasFirstName>
+        <hasJob rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bilgisayar Mühendisi</hasJob>
+        <hasLastName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sütcü</hasLastName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
